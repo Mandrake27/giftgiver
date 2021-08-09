@@ -13,24 +13,32 @@ class Gift extends Component {
 	};
 
 	render() {
-		return <div>
-			<Form>
-				<FormGroup>
-					<FormLabel>Person</FormLabel>
-					<FormControl
-						onChange={ event => this.updateGiftEntity('person', event.target.value) }
-						className="input-person"
-					/>
-				</FormGroup>
-				<FormGroup>
-					<FormLabel>Present</FormLabel>
-					<FormControl
-						onChange={ event => this.updateGiftEntity('present', event.target.value) }
-						className="input-present"
-					/>
-				</FormGroup>
-			</Form>
-		</div>;
+		return (
+			<div className="gift">
+				<Form>
+					<FormGroup>
+						<FormLabel>Person</FormLabel>
+						<FormControl
+							onChange={ event => this.updateGiftEntity('person', event.target.value) }
+							className="input-person"
+						/>
+					</FormGroup>
+					<FormGroup>
+						<FormLabel>Present</FormLabel>
+						<FormControl
+							onChange={ event => this.updateGiftEntity('present', event.target.value) }
+							className="input-present"
+						/>
+					</FormGroup>
+				</Form>
+				<Button
+					className="btn-remove"
+					onClick={ () => this.props.removeGift(this.props.gift.id) }
+				>
+					Remove Gift
+				</Button>
+			</div>
+		);
 	}
 }
 
